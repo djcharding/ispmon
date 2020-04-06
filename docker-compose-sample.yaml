@@ -1,0 +1,22 @@
+version: "3.5"
+
+services:
+  ispmon:
+    image: ispmon
+    build:
+      dockerfile: Dockerfile
+      context: .
+    working_dir: /app/ispmon
+    volumes:
+      - ./ispmon/:/app/ispmon
+    environment:
+      MAILGUN_API_KEY:  <API KEY>
+      MAILGUN_DOMAIN: <DOMAIN>
+      MAILGUN_FROM_EMAIL: <SENDER_EMAIL_ADDRESS>
+      MAILGUN_FROM_NAME: Mailer
+      RECIPIENT_EMAIL: john.doe@domain.com
+    command:
+      - python3
+      - ispmon.py
+
+

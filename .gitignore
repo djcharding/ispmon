@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+.vscode/
+data_output.json
+os-output.json
+ispmon/data/*
+docker-compose.yaml

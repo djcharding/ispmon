@@ -1,0 +1,4 @@
+speedtest-cli
+pytz
+numpy
+requests
