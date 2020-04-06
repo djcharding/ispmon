@@ -16,7 +16,7 @@ A Speetest monitor with the ability to send email reports via Mialgun REST api.
 
     `docker-compose run`
 
-## Required environemnt varibales
+## Required environment varibales
 
 | Variable  | Description  |
 |---|---|
