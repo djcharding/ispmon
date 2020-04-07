@@ -7,9 +7,10 @@ RUN apt-get install gnupg1 apt-transport-https dirmngr lsb-release -y && \
     echo "deb https://ookla.bintray.com/debian ${DEB_DISTRO} main" | tee  /etc/apt/sources.list.d/speedtest.list 
 RUN apt-get update && \
     apt-get install speedtest -y
-RUN apt-get install python3.6 python3-pip -y
+RUN apt-get install python3.6 python3-pip python3-numpy -y
 RUN mkdir /app/
 ADD requirements.txt /app/
 WORKDIR /app
+RUN pip3 install --upgrade Cython
 RUN pip3 install -r requirements.txt
 RUN export PATH=”$PATH:/usr/local/bin/python

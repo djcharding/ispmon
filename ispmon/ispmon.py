@@ -104,14 +104,17 @@ I've also added the code used to perform this test to my GitHub so you may asses
 Please feel free to contact me directly using the contact information associated withe account below if you have any questions.
 
     """
-    log(message)
-
-    _result = send_mailgun(sender, receiver, subject, message)
     
-    if _result.status_code == 200:
-        log('Success')
-    else:
-        log('Failed.')
+    dwn_test = floatfmt(result['download'] - result['expected']['download'])
+    up_test = floatfmt(result['upload'] - SETTINGS['purchased']['upload'])
+
+    if (dwn_test < 0 or up_test < 0):
+        _result = send_mailgun(sender, receiver, subject, message)
+        
+        if _result.status_code == 200:
+            log('Success')
+        else:
+            log('Failed.')
 
 
 def floatfmt(value):
